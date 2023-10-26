@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+        body {
+            background-image: url("{% static 'images/home_slider.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
+    </style>
+</head>
+<body>
+<h2>Registration</h2>
+<form action="register" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="enter the username"><br>
+    <input type="text" name="first_name" placeholder="enter your first name"><br>
+    <input type="text" name="last_name" placeholder="enter your last name"><br>
+    <input type="email" name="email" placeholder="enter your email"><br>
+    <input type="password" name="password" placeholder="enter the password"><br>
+    <input type="password" name="password1" placeholder="enter the confirmed password"><br>
+    <input type="submit">
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>
